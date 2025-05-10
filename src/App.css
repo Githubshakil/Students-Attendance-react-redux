@@ -18,6 +18,7 @@ input[type="text"]{
 
 button{
     padding: 8px 16px;
+    margin-top: 20px;
     background-color: #28a745;
     color: white;
     border: none;

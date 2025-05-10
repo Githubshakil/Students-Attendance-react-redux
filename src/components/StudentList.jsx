@@ -42,8 +42,8 @@ const StudentList = () => {
                     <th>Student Name</th>
                     <th>Attendance</th>
                 </tr>
-            </thead>
           
+            </thead>
               <tbody>
                 {students.map((student) => (
                     <tr key={student.id}>
