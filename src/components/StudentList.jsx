@@ -15,6 +15,12 @@ const StudentList = () => {
             <button onClick={handleAdd}>Add Student</button>
         </div>
             <table className='attendance-table'></table>
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Attendance</th>
+                </tr>
+            </thead>
 
     </div>
   )
