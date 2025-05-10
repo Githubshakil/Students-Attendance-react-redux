@@ -1,17 +1,18 @@
-import React, { use } from 'react'
+
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { addStudent } from '../slices/counter/studentSlice'
+import { addStudent, toggleAttendance } from '../slices/counter/studentSlice'
 
 const StudentList = () => {
     const [name, setName] = useState('')
     const [showSummary, setShowSummary] = useState(false)
-    const students = useSelector((state) => state.students)
+    const students = useSelector((state) => state.students) // Access the students from the Redux store
     const dispatch = useDispatch()
     const handleAdd = () => {
-        if (name.trim()) {
-            dispatch(addStudent(name))
-            setName('')
-            setShowSummary(false)
+        if (name.trim()) {           //trim() removes whitespace from both sides of a string
+            dispatch(addStudent(name)) // Dispatch the addStudent action with the name
+            setName('')           // Clear the input field after adding student
+            setShowSummary(false); // Reset the summary when a new student is added
         }
     };
 
@@ -35,19 +36,32 @@ const StudentList = () => {
             />
             <button onClick={handleAdd}>Add Student</button>
         </div>
-            <table className='attendance-table'></table>
+            <table className='attendance-table'>
             <thead>
                 <tr>
                     <th>Student Name</th>
                     <th>Attendance</th>
                 </tr>
             </thead>
-          <table>
+          
               <tbody>
                 {students.map((student) => (
-                    <span className='student-text'>
-                        {student.present ? 'Present' : 'Absent'}
-                    </span>
+                    <tr key={student.id}>
+                        <td>{student.name}</td>
+                        <td>
+                            <label className='switch'>
+                                <input
+                                type='checkbox'
+                                checked={student.present}
+                                onChange={() => dispatch(toggleAttendance(student.id))}
+                            />
+                            <span className='slider round'></span>
+                            </label>
+                        </td>
+                        <td className='student-text'>
+                            {student.present ? 'Present' : 'Absent'}
+                        </td>
+                    </tr>
                 ))}
             </tbody>
           </table>

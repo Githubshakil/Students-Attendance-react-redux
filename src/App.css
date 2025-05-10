@@ -27,3 +27,88 @@ button{
 button:hover{
     background-color: #218838;
 }
+
+.attendance-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.attendance-table th, .attendance-table td{
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* toggle switch */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+}
+
+.switch input{
+    opacity: 0;
+    width: 0;
+    height: 0;      
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius:  22px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+
+.status-text{
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.submit-btn{
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.summary{
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px; 
+
+}
+
+.checkbox{
+    margin-right: 10px;
+
+}

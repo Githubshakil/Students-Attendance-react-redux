@@ -15,12 +15,11 @@ import { createSlice } from '@reduxjs/toolkit'
     },
     toggleAttendance: (state,action) => {
       const student = state.find((s) => s.id === action.payload);
-      if (student) {
-        student.present = !student.present;
-      }
+      if (student)  student.present = !student.present;
+      },
     }
   },
-})
+)
 
 
 export const {addStudent, toggleAttendance  } = studentSlice.actions
