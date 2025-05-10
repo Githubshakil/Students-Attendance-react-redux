@@ -1,5 +1,6 @@
 import React, { use } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { addStudent } from '../slices/counter/studentSlice'
 
 const StudentList = () => {
     const [name, setName] = useState('')
@@ -41,6 +42,27 @@ const StudentList = () => {
                     <th>Attendance</th>
                 </tr>
             </thead>
+          <table>
+              <tbody>
+                {students.map((student) => (
+                    <span className='student-text'>
+                        {student.present ? 'Present' : 'Absent'}
+                    </span>
+                ))}
+            </tbody>
+          </table>
+
+          <button className='submit-btn' onClick = {handleSubmit}>Submit Attendance</button>
+
+          {showSummary && (
+            <div className='summary'>
+                <p><strong>Present:</strong>{presentCount}</p>
+                <p><strong>Absent:</strong>{absentCount}</p>
+                
+            </div>
+          )
+
+          }
 
     </div>
   )
