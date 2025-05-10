@@ -12,7 +12,15 @@ const StudentList = () => {
             setName('')
             setShowSummary(false)
         }
+    };
+
+    const handleSubmit = () => {
+        setShowSummary(true);
+
     }
+
+    const presentCount = students.filter(s => s.present).length
+    const absentCount = students.length - presentCount
   return (
     <div className='container'>
         <h2>Student Attendence</h2>
