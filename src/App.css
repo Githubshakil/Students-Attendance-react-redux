@@ -113,3 +113,14 @@ input:checked + .slider:before {
     margin-right: 10px;
 
 }
+.student-text{
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-left: 10px;
+}
+.attendance{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

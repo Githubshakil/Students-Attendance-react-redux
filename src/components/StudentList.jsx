@@ -48,18 +48,19 @@ const StudentList = () => {
                 {students.map((student) => (
                     <tr key={student.id}>
                         <td>{student.name}</td>
-                        <td>
-                            <label className='switch'>
+                        <td className='attendance'>
+                            <label className="switch">
                                 <input
                                 type='checkbox'
                                 checked={student.present}
                                 onChange={() => dispatch(toggleAttendance(student.id))}
                             />
-                            <span className='slider round'></span>
+                            <span className='slider'></span>
                             </label>
-                        </td>
-                        <td className='student-text'>
+                        
+                        <span className='student-text'>
                             {student.present ? 'Present' : 'Absent'}
+                        </span>
                         </td>
                     </tr>
                 ))}
