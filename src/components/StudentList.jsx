@@ -1,6 +1,18 @@
-import React from 'react'
+import React, { use } from 'react'
+import { useSelector } from 'react-redux'
 
 const StudentList = () => {
+    const [name, setName] = useState('')
+    const [showSummary, setShowSummary] = useState(false)
+    const students = useSelector((state) => state.students)
+    const dispatch = useDispatch()
+    const handleAdd = () => {
+        if (name.trim()) {
+            dispatch(addStudent(name))
+            setName('')
+            setShowSummary(false)
+        }
+    }
   return (
     <div className='container'>
         <h2>Student Attendence</h2>
